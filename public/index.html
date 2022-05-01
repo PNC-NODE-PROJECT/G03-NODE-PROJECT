@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  
+  <div class='bold-line'></div>
+  <div class='container'>
+    <div class='window'>
+      <div class='overlay'></div>
+      <div class='content'>
+        <div class='welcome'>QUIZ APP</div>
+        <br>
+        <div class='subtitle'>Build and play to improve your ability.</div>
+        <div class='input-fields'>
+          <input type='text' id="username" placeholder='Username' class='input-line full-width' required>
+          <input type='password' id='psw' placeholder='Password' class='input-line full-width' required>
+  
+        </div>
+        <div class="show-password">
+          <input type="checkbox" id="showPSW" style="font-size: 25px;">
+          <label for="showPSW" style="margin-left: 10px;font-size: 18px;" id="shPSW">Show password</label>
+      </div>
+        <br>
+        <div><a href="#" style="text-decoration: none; color: white;" id="btn-login"><button class='ghost-round full-width' id="btnHome">Log in</button></a></div>
+        <div><a href="views/create/create_account.html" style="text-decoration: none; color: white"><button class='ghost-round full-width'>Create account</button></a></div>
+      </div>
+    </div>
+  </div>
+  <script src="views/login/login.js"></script>
+</body>
+</html>
