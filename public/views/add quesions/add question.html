@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="add question.css">
+<title>Add questions</title>
+</head>
+<body>
+    <section id="edit-quiz">
+        <!-- form to add question -->
+        <div class="menu">
+            <div class="logo">
+                <h1>Quiz APP</h1>
+            </div>
+            <div class="account">
+                <div id="name_user"><p id="name_user">Ulvy</p></div>
+                <div class="user"><i class="fa fa-user-circle"></i></div>
+                <button class="button">Sign out</button>
+            </div>
+        </div>
+    <div class="cover">
+        <div class="blur">
+            <div id="form-add">
+                <h1 id="quiztitle" >Create title Quiz</h1>
+                <input type="text" class="tittle" id="title" placeholder="Add quiz tittle..">
+                <button id="addTitle">Add title</button>
+                <form action="#" style="display: none" id="formQue">                
+                    <div class="header">
+                        <div class="back">
+                            <button id="btn-back">Back</button>
+                        </div>
+                        <label for="quiz_menu">Creat questions</label><br>
+                    </div>
+                    <input type="text" name="question" id="question" placeholder="Add question..">
+                    <label for="score">Score: </label>
+                    <input type='number' name='point' id='score' value="5">
+                    <div id="choices">
+                        <input type="radio" name="choice" id="1"><input type="text" placeholder="Add answer" name="label-choice" class="label-choice" id="a1">
+                        <input type="radio" name="choice" id="2"><input type="text" placeholder="Add answer" name="label-choice" class="label-choice" id="a2">
+                    </div>
+                    <div id="choices">
+                        <input type="radio" name="choice" id="3"><input type="text" placeholder="Add answer" name="label-choice" class="label-choice" id="a3">
+                        <input type="radio" name="choice" id="4"><input type="text" placeholder="Add answer" name="label-choice" class="label-choice" id="a4">
+                    </div>
+                    <button type="button" id="btn-add-question">Add Question</button>
+                </form>
+            </div>
+        </div>
+    </div>
+        <div id="question-content">
+           
+        </div>
+        <div class="update">
+            
+        </div>
+    </section>
+    
+    <script src="add question.js"></script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+
+#form-add{
+    width: 60%;
+    padding: 3rem;
+    text-align: center;
+    margin-left: 13rem; 
+    margin-top: 6rem;
+    background: #f0ece771;
+    border-radius: 10px;
+}
+body{
+    background-image: url("../../image/360_F_264451404_s4Dhf0mQZdg1N4Gx9RrwfnIIjBiZQ459.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.header{
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+}
+.tittle{
+    margin-top: 20px;
+    width: 75%;
+    padding: 14px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.724);
+    border-bottom: 4px solid #B993D6;
+}
+#addTitle{
+    padding: 1rem;
+    color: white;
+    background: blue;
+    border: none;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-left: 4px;
+}
+
+/* / input question / */
+#question{
+    margin-top:50px;
+    margin-bottom: 20px;
+    width:70%;
+    padding:12px;
+    margin-left: 6rem;
+}
+
+#question-content{
+    width: 50%;
+    margin: auto;
+}
+/*input score  */
+#score{
+     width: 6%; 
+     text-align: center;
+     outline: none;
+     border: none;
+     color: black;
+     padding: 0.3rem 0.5rem;
+    background: #eee;
+}
+.label-choice{
+    padding: 10px;
+    margin: 8px;
+    width: 30%;
+}
+/* / button add queston   */
+#btn-add-question{
+    margin-top: 30px;
+    width: 25%;
+    font-size: 16px;
+    padding: 11px;
+    background: blue;
+    color: white;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+input,
+input::-webkit-input-placeholder {
+    font-size: 18px;
+    outline: none;
+}
+.back{
+    margin-left: 45rem;
+}
+.back #btn-back{
+    padding: 0.6rem 1.5rem;
+    background: blue;
+    border: none;
+    font-size: 16px;
+    color: white;
+}
+
+/* logo */
+.logo{
+    margin-left: 3rem;
+}
+.fa{
+    font-size: 2.5rem;
+    margin-top: 1rem;
+
+}
+.menu{
+    display: flex;
+    justify-content: space-between;    
+    position: fixed;
+    width: 100%;
+    top: 0%;
+    margin-left: -0.5rem;
+    background-color: lightcyan;
+}
+.fa .fa-user-circle{
+    margin-top: 2rem;
+}
+.button{
+    border: none;
+    background: blue;
+    color: white;
+    font-weight: bold;
+    border-radius:5px;
+    margin-right: 3rem;
+    margin-left: 3rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+.account{
+    display: flex;
+}
+#name_user{
+    margin-top: 0.8rem;
+    font-weight: bold;
+    margin-right: 0.2rem;
+}
+strong{
+    color:coral ;    
+}
+.btn a{
+    color: white;
+    text-decoration: none;
+}
+.demo-content{
+    padding: 25px;
+    font-size: 18px;
+}
+
+
+
+
+
+
+
+/* Display question */
+
+/* #question-content{
+    background: rgba(255, 255, 255, 0.729);
+} */
+.form-que{
+    background: rgba(255, 255, 255, 0.729);
+    border-left: 8px solid #B993D6;
+    font-size: 20px;
+}
+.tittleQues{
+    text-align: center;
+}

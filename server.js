@@ -38,3 +38,33 @@ app.post('/addUser',(req, res) => {
         res.send(error);
     })
   })
+
+
+  app.get('/quiz',(req, res) => {
+    quizzesModel.find()
+    .then((results) => {
+        res.send(results);
+    })
+    .catch((error) =>{
+        res.send(error);
+    })
+  })
+  app.post('/addQuestions/:id',(req, res) => {
+    quizzesModel.updateOne({_id:req.params.id}, {$push:{questions: req.body}})
+    .then((resulte) => {
+        res.send(resulte);
+    })
+    .catch((error) => {
+        res.send(error);
+    })
+  })
+
+  app.post('/title',(req, res) => {
+    quizzesModel.create(req.body)
+    .then((resulte) => {
+        res.send(resulte);
+    })
+    .catch((error) => {
+        res.send(error);
+    })
+  })
