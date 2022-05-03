@@ -86,15 +86,102 @@ function addTitle(){
 // display question after added
 function displayQuestion(){
 
+    let ctrlBtn = document.createElement("div");
+    ctrlBtn.id = "ctrlBtn"
+    
+    let btnDelete = document.createElement("button");
+    btnDelete.className = "delete";
+    btnDelete.textContent = 'Delete'
+
+    let btnUpdate = document.createElement("button");
+    btnUpdate.className = titleID;
+    btnUpdate.classList.add("updatebtn")
+    btnUpdate.textContent = 'Update';
+    btnUpdate.id = quesID;
+
+    ctrlBtn.appendChild(btnDelete)
+    ctrlBtn.appendChild(btnUpdate)
+    let form_que = document.createElement("div");
+    form_que.className = "form-que"
+
+    let ques = document.createElement("p");
+    ques.className = "titleQues";
+    ques.textContent = question.value
+    let an1 = document.createElement("p");
+    let an2 = document.createElement("p");
+    let an3 = document.createElement("p");
+    let an4 = document.createElement("p");
+    let score = document.createElement("span")
+    let correctAn = document.createElement("p");
+    an1.className="answ1"
+    an1.textContent = ans1.value
+
+    an2.className="answ2"
+    an2.textContent =ans2.value
+
+    an3.className="answ3";
+    an3.textContent = ans3.value
+
+    an4.textContent = ans4.value
+    an4.className="answ4";
+
+    correctAn.className="corectans"
+    correctAn.textContent =correcrtAns
+
+    score.className = "scoreQue"
+    score.textContent ="Score: " +scores.value
+                    
+                
+    if(an1.textContent == correctAn.textContent){
+        an1.style.background = "green";
+        an1.style.color="white";
+        // an2.style.background = "red";
+        // an3.style.background = "red";
+        // an4.style.background = "red";
+    }
+    if(an2.textContent == correctAn.textContent){
+        an2.style.background = "green";
+        an2.style.color="white";
+        // an1.style.color = "red";
+        // an3.style.color = "red";
+        // an4.style.color = "red";
+    }
+        if(an3.textContent == correctAn.textContent){
+        an3.style.background = "green";
+        an3.style.color="white";
+        // an1.style.color = "red";
+        // an2.style.color = "red";
+        // an4.style.color = "red";
+    }
+    if(an4.textContent == correctAn.textContent){
+        an4.style.background = "green";
+        an4.style.color="white";
+        // an1.style.color = "red";
+        // an3.style.color = "red";
+        // an2.style.color = "red";
+    }
+
+  
+
+    form_que.appendChild(ques);
+    form_que.appendChild(score)
+    form_que.appendChild(an1);
+    form_que.appendChild(an2);
+    form_que.appendChild(an3);
+    form_que.appendChild(an4);
+    form_que.appendChild(ctrlBtn);
+    contentQue.appendChild(form_que);
+
+    
 }
 
 function DeleteQuestion(e){
-        let URL = "http://localhost:3000/deleteQuestion/"+titleID+"/"+quesID;
-        axios.post(URL);
+//         let URL = "http://localhost:3000/deleteQuestion/"+titleID+"/"+quesID;
+//         axios.post(URL);
 }
 
 function updateQuestion(){
-    let URL = "http://localhost:3000/updateQuestion/"+btnUpdate.className+"/"+btnUpdate.id;
+//     let URL = "http://localhost:3000/updateQuestion/"+btnUpdate.className+"/"+btnUpdate.id;
 }
 
 

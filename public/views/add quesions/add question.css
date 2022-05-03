@@ -158,14 +158,40 @@ strong{
 
 /* Display question */
 
-/* #question-content{
-    background: rgba(255, 255, 255, 0.729);
-} */
 .form-que{
     background: rgba(255, 255, 255, 0.729);
-    border-left: 8px solid #B993D6;
     font-size: 20px;
+    border-radius: 5px;
+    padding-left: 30px;
+    border-radius: 5px;
+
 }
-.tittleQues{
+.titleQues{
     text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+}
+.scoreQue{
+    margin-left: 80%;
+    margin-right: -2%;
+}
+#ctrlBtn{
+    text-align: center;
+}
+.delete{
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    background: red;
+    margin-bottom: 5px;
+}
+.updatebtn{
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    background: green;
+    margin-bottom: 5px;
+    margin-left: 3px;
 }
