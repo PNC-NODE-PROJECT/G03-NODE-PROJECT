@@ -33,7 +33,6 @@ var choices = document.getElementById("choices");
 var titleID = "";
 let quesID = "";
 var contentQue = document.getElementById("question-content");
-
 function addQuestions() {
     let ifCompleted = false;
     let URL = "http://localhost:3000/addQuestions/"+titleID;
@@ -59,6 +58,10 @@ function addQuestions() {
     if(ifCompleted){
             axios.post(URL,{question:question.value,answer:{answer1:ans1.value,answer2:ans2.value,answer3:ans3.value,answer4:ans4.value},correctAnswer:correcrtAns,score:scores.value}).then(() =>{
                     displayQuestion();
+                    let clearAnswerForm=document.querySelectorAll(".clear")
+                    for(let clears of clearAnswerForm){
+                        clears.value=""
+                    }
             })
     }
     else if(!ifCompleted){
@@ -69,8 +72,8 @@ function addQuestions() {
 function addTitle(){
     if (document.getElementById("title").value.length>0){
         title.style.display="none";
-        document.getElementById("quiztitle").style.display="none";
         document.getElementById("addTitle").style.display = "none";
+        document.getElementById("quest").style.display="none"
         document.getElementById("formQue").style.display = "block";
         let URL = "http://localhost:3000/title";
         axios.post(URL, {title:title.value,userID:localStorage.getItem("userID")}).then((response) =>{
@@ -129,40 +132,36 @@ function displayQuestion(){
     correctAn.textContent =correcrtAns
 
     score.className = "scoreQue"
-    score.textContent ="Score: " +scores.value
+    score.textContent ="Score: " + scores.value
                     
-                
     if(an1.textContent == correctAn.textContent){
-        an1.style.background = "green";
-        an1.style.color="white";
-        // an2.style.background = "red";
-        // an3.style.background = "red";
-        // an4.style.background = "red";
+        an1.style.color = "green";
+        an2.style.color = "red";
+        an3.style.color = "red";
+        an4.style.color = "red";
     }
     if(an2.textContent == correctAn.textContent){
-        an2.style.background = "green";
-        an2.style.color="white";
-        // an1.style.color = "red";
-        // an3.style.color = "red";
-        // an4.style.color = "red";
+        an2.style.color = "green";
+        an1.style.color = "red";
+        an3.style.color = "red";
+        an4.style.color = "red";
     }
-        if(an3.textContent == correctAn.textContent){
-        an3.style.background = "green";
-        an3.style.color="white";
-        // an1.style.color = "red";
-        // an2.style.color = "red";
-        // an4.style.color = "red";
+    if(an3.textContent == correctAn.textContent){
+        an3.style.color = "green";
+        an1.style.color = "red";
+        an2.style.color = "red";
+        an4.style.color = "red";
     }
     if(an4.textContent == correctAn.textContent){
-        an4.style.background = "green";
-        an4.style.color="white";
-        // an1.style.color = "red";
-        // an3.style.color = "red";
-        // an2.style.color = "red";
+        an4.style.color = "green";
+        an1.style.color = "red";
+        an3.style.color = "red";
+        an2.style.color = "red";
     }
-
-  
-
+    
+    
+    
+    
     form_que.appendChild(ques);
     form_que.appendChild(score)
     form_que.appendChild(an1);
@@ -175,13 +174,13 @@ function displayQuestion(){
     
 }
 
-function DeleteQuestion(e){
-//         let URL = "http://localhost:3000/deleteQuestion/"+titleID+"/"+quesID;
-//         axios.post(URL);
+function DeleteQuestion(){
+        let URL = "http://localhost:3000/deleteQuestion/"+titleID+"/"+quesID;
+        axios.post(URL);
 }
 
 function updateQuestion(){
-//     let URL = "http://localhost:3000/updateQuestion/"+btnUpdate.className+"/"+btnUpdate.id;
+    let URL = "http://localhost:3000/updateQuestion/"+btnUpdate.className+"/"+btnUpdate.id;
 }
 
 

@@ -12,45 +12,31 @@
 <body>
     <section id="edit-quiz">
         <!-- form to add question -->
-        <div class="menu">
-            <div class="logo">
-                <h1>Quiz APP</h1>
-            </div>
-            <div class="account">
-                <div id="name_user"><p id="name_user">Ulvy</p></div>
-                <div class="user"><i class="fa fa-user-circle"></i></div>
-                <button class="button">Sign out</button>
-            </div>
+        <div id="form-add">
+            <h1 id="quest">Title quiz</h1>
+            <input type="text" class="tittle" id="title" placeholder="Add quiz tittle..">
+            <button id="addTitle">Add title</button>
+            <form action="#" style="display: none" id="formQue">                
+                <div class="back">
+                    <button id="btn-back">Back</button>
+                </div>
+                <div class="header">
+                    <label for="quiz_menu">Creat questions</label><br>
+                </div>
+                <input type="text" name="question" id="question" placeholder="Add question.." class="clear">
+                <label for="score">Score: </label>
+                <input type='number' name='point' id='score' value="5">
+                <div id="choices">
+                    <input type="radio" name="choice" id="1" class="clear"><input type="text" placeholder="Add answer" name="label-choice" class="label-choice clear" id="a1">
+                    <input type="radio" name="choice" id="2" class="clear"><input type="text" placeholder="Add answer" name="label-choice" class="label-choice clear" id="a2">
+                </div>
+                <div id="choices">
+                    <input type="radio" name="choice" id="3"><input type="text" placeholder="Add answer" name="label-choice" class="label-choice clear" id="a3">
+                    <input type="radio" name="choice" id="4"><input type="text" placeholder="Add answer" name="label-choice" class="label-choice clear" id="a4">
+                </div>
+                <button type="button" id="btn-add-question">Add Question</button>
+            </form>
         </div>
-    <div class="cover">
-        <div class="blur">
-            <div id="form-add">
-                <h1 id="quiztitle" >Create title Quiz</h1>
-                <input type="text" class="tittle" id="title" placeholder="Add quiz tittle..">
-                <button id="addTitle">Add title</button>
-                <form action="#" style="display: none" id="formQue">                
-                    <div class="header">
-                        <div class="back">
-                            <button id="btn-back">Back</button>
-                        </div>
-                        <label for="quiz_menu">Creat questions</label><br>
-                    </div>
-                    <input type="text" name="question" id="question" placeholder="Add question..">
-                    <label for="score">Score: </label>
-                    <input type='number' name='point' id='score' value="5">
-                    <div id="choices">
-                        <input type="radio" name="choice" id="1"><input type="text" placeholder="Add answer" name="label-choice" class="label-choice" id="a1">
-                        <input type="radio" name="choice" id="2"><input type="text" placeholder="Add answer" name="label-choice" class="label-choice" id="a2">
-                    </div>
-                    <div id="choices">
-                        <input type="radio" name="choice" id="3"><input type="text" placeholder="Add answer" name="label-choice" class="label-choice" id="a3">
-                        <input type="radio" name="choice" id="4"><input type="text" placeholder="Add answer" name="label-choice" class="label-choice" id="a4">
-                    </div>
-                    <button type="button" id="btn-add-question">Add Question</button>
-                </form>
-            </div>
-        </div>
-    </div>
         <div id="question-content">
            
         </div>

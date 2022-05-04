@@ -1,4 +1,87 @@
 
+/* #form-add{
+    width: 60%;
+    padding: 3rem;
+    text-align: center;
+    margin-left: 13rem; 
+    background: #f0ece7;
+    box-shadow: 8px 8px 9px #aaaaaa;
+}
+
+.header{
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+}
+.tittle{
+    margin-top: 20px;
+    width: 75%;
+    padding: 14px;
+} */
+
+/* / input question /
+#question{
+    margin-top:50px;
+    margin-bottom: 20px;
+    width:70%;
+    padding:12px;
+    margin-left: 6rem;
+}
+
+#question-content{
+    width: 50%;
+    margin: auto;
+} */
+/*input score  */
+/* #score{
+     width: 6%; 
+     text-align: center;
+     outline: none;
+     border: none;
+     color: black;
+     padding: 0.3rem 0.5rem;
+    background: #eee;
+    box-shadow: 8px 8px 8px -4px #aaaaaa;
+} */
+
+/* .label-choice{
+    padding: 10px;
+    margin: 8px;
+    width: 30%;
+} */
+/* / button add queston  / */
+/* #btn-add-question{
+    margin-top: 30px;
+    width: 25%;
+    font-size: 16px;
+    padding: 11px;
+    background: blue;
+    color: white;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+input,
+input::-webkit-input-placeholder {
+    font-size: 18px;
+    outline: none;
+}
+.back{
+    margin-left: 45rem;
+}
+.back #btn-back{
+    padding: 0.6rem 1.5rem;
+    background: blue;
+    border: none;
+    font-size: 16px;
+    color: white;
+} */
+
+
+
+
+
 #form-add{
     width: 60%;
     padding: 3rem;
