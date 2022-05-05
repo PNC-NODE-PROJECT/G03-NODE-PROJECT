@@ -58,6 +58,10 @@ function addQuestions() {
     if(ifCompleted){
             axios.post(URL,{question:question.value,answer:{answer1:ans1.value,answer2:ans2.value,answer3:ans3.value,answer4:ans4.value},correctAnswer:correcrtAns,score:scores.value}).then(() =>{
                     displayQuestion();
+                    let clearAnswerForm=document.querySelectorAll(".clear")
+                    for(let clears of clearAnswerForm){
+                        clears.value=""
+                    }
             })
     }
     else if(!ifCompleted){
@@ -69,7 +73,11 @@ function addTitle(){
     if (document.getElementById("title").value.length>0){
         title.style.display="none";
         document.getElementById("addTitle").style.display = "none";
+<<<<<<< HEAD
         document.getElementById("quest").style.display="none";
+=======
+        document.getElementById("quest").style.display="none"
+>>>>>>> b7ece9d3339ea48b49b39aa65789c7c47649da4f
         document.getElementById("formQue").style.display = "block";
         let URL = "http://localhost:3000/title";
         axios.post(URL, {title:title.value,userID:localStorage.getItem("userID")}).then((response) =>{
