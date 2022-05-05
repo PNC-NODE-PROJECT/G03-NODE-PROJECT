@@ -73,11 +73,7 @@ function addTitle(){
     if (document.getElementById("title").value.length>0){
         title.style.display="none";
         document.getElementById("addTitle").style.display = "none";
-<<<<<<< HEAD
         document.getElementById("quest").style.display="none";
-=======
-        document.getElementById("quest").style.display="none"
->>>>>>> b7ece9d3339ea48b49b39aa65789c7c47649da4f
         document.getElementById("formQue").style.display = "block";
         let URL = "http://localhost:3000/title";
         axios.post(URL, {title:title.value,userID:localStorage.getItem("userID")}).then((response) =>{
