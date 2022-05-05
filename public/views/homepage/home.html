@@ -11,15 +11,17 @@
     <title>Document</title>
 </head>
 <body>
-    <section>
+    <section id="homepage">
         <div class="menu">
             <div class="logo">
                 <h1>Quiz APP</h1>
             </div>
             <div class="account">
-                <div id="name_user"><p id="name_user">Ulvy</p></div>
-                <div class="user"><i class="fa fa-user-circle"></i></div>
-                <button class="button">Sing up</button>
+                <div id="name_user"><p id="name_user" style="margin-right: 10px; margin-top: 5px;"></p></div>
+                <div class="img">
+                    <div class="user"><img src="../../image/profile.png"  id="pfUser" style="width: 10%;" class="fa fa-user-circle" ></div>
+                    <button class="button" id="signUp">Sing up</button>
+                </div>
             </div>
         </div>
         <div class="image-bg">
@@ -35,5 +37,13 @@
         </div>
         
     </section>
+    <div class="card" id="card" style="display: none;">
+        <img src="../../image/profile.png" alt="John" style="width:60%">
+        <h1 id="name">John Doe</h1>
+        <p id="email">CEO & Founder, Example</p>
+        <p id="password">Harvard University</p>
+        <p ><button id="btnBack">Back</button></p>
+  </div>
+    <script src="home.js"></script>
 </body>
 </html>

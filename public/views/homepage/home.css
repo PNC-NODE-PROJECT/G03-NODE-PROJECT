@@ -59,7 +59,38 @@
     display: flex;
 }
 #name_user{
-    margin-top: 0.8rem;
+    margin-top: 1rem;
+    font-size: 20px;
     font-weight: bold;
-    margin-right: 0.2rem;
+    margin-right: 1rem;
 }
+.img{
+    display: flex;
+    margin-top: -10px;
+}
+.card {
+    
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    margin-top: 3rem;
+    z-index: 3;
+  }
+  
+  .title {
+    color: grey;
+    font-size: 18px;
+  }
+  
+  button:hover, a:hover {
+    opacity: 0.7;
+  }
+  #btnBack{
+      padding:15px;
+      width:50%;
+      border: none;
+      border-radius: 5px;
+      background:green;
+      color:white;
+  }

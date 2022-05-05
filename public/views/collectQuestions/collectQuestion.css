@@ -1,0 +1,18 @@
+.collectQue{
+    margin-top: 10px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: auto auto auto auto;
+    gap: 10px;
+}
+.card{
+    width: 18rem;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.input-group{
+    width: 50%;
+    margin: 0 auto;
+    margin-top:1rem
+}

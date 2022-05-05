@@ -1,0 +1,50 @@
+.collectQue{
+    margin-top: 10px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: auto auto auto auto;
+    gap: 10px;
+}
+.card{
+    width: 18rem;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+#displayViewQuestion{
+    margin-top: 50px;
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.answer{
+    margin: top 5px;
+    padding:10px;
+    border-radius:5px;
+}
+.que{
+    text-align:center;
+}
+
+#back{
+    position: relative;
+    cursor: pointer;
+    padding:15px;
+    border: none;
+    background: green;
+    top: -550px;
+    left: 85px;
+    width: 10%;
+    color:white;
+    font-size: 20px;
+    border-radius:10px 5px
+}
+.noQuiz{
+    font-size: 50px;
+}
+.input-group{
+    width: 50%;
+    margin: 0 auto;
+    margin-top:1rem
+}
