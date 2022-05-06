@@ -169,9 +169,6 @@ function displayQuestion(){
                 an2.style.color = "red";
             }
             
-            
-            
-            
             form_que.appendChild(ques);
             form_que.appendChild(score);
             form_que.appendChild(an1);
