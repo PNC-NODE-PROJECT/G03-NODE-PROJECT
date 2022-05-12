@@ -1,6 +1,6 @@
 const allButtonPlay = document.body;
 const searchBtn = document.getElementById('search');
-allButtonPlay.addEventListener("click", (e) =>{
+allButtonPlay.addEventListener("click", (e) => {
     let titleID = e.target.id;
     localStorage.setItem("titleID", titleID);
     if (titleID.length > 20) {
@@ -14,8 +14,8 @@ function createCard() {
     let getAllData = [];
     axios.get(URL).then((response) => {
         getAllData = response.data;
-    
-    for (let value of getAllData) {
+
+        for (let value of getAllData) {
             let collectQuestion = document.createElement('div');
             collectQuestion.className = "collectQue";
 
@@ -33,14 +33,14 @@ function createCard() {
             let card_title = document.createElement('h5');
             card_title.className = "card-title";
             card_title.id = "title";
-            
+
             let list_group = document.createElement("ul");
             list_group.classList = "list-group list-group-flush";
-            
+
             let list_group_item = document.createElement("li")
             list_group_item.classList = "list-group-item";
             list_group_item.id = "numberOfQue"
-            
+
             let divLink = document.createElement("div");
             divLink.className = "card-body";
 
@@ -53,8 +53,8 @@ function createCard() {
             button.id = value._id;
             button.textContent = "Play now"
 
-                        
-            
+
+
             card_body.append(card_title);
             card.appendChild(card_body);
             card.appendChild(img);
@@ -66,11 +66,11 @@ function createCard() {
             card.appendChild(divLink)
             document.getElementById("collectQuestion").appendChild(card)
             list_group_item.style.color = "blue"
-            list_group_item.textContent = value.questions.length+"  Questions";
+            list_group_item.textContent = value.questions.length + "  Questions";
             card_title.style.color = "green"
-            card_title.textContent ="Title : "+ value.title;
-    }
-})
+            card_title.textContent = "Title : " + value.title;
+        }
+    })
 
 }
 createCard();
@@ -79,13 +79,13 @@ function searchTitle() {
     let allCard = document.querySelectorAll(".card");
     let allTitle = document.querySelectorAll("#title")
     let valueText = document.getElementById("vlaueText").value;
-    for(let i=0; i<allCard.length; i++) {
+    for (let i = 0; i < allCard.length; i++) {
         let Lengstr = allCard[i].textContent.length;
-        let getTitle = allTitle[i].textContent.substring(8,Lengstr);
+        let getTitle = allTitle[i].textContent.substring(8, Lengstr);
         let getParentEle = allTitle[i].parentElement.parentElement;
-        if(getTitle.indexOf(valueText)>0) {
+        if (getTitle.indexOf(valueText) >= 0) {
             getParentEle.style.display = "block";
-        }else {
+        } else {
             getParentEle.style.display = "none";
         }
         console.log(typeof(valueText));
@@ -94,4 +94,4 @@ function searchTitle() {
 
 }
 
-searchBtn.addEventListener("click",searchTitle);
+searchBtn.addEventListener("click", searchTitle);
