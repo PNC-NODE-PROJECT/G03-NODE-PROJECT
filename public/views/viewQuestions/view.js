@@ -2,7 +2,7 @@ const displayQue = document.getElementById("displayViewQuestions");
 const allButtonBack = document.body
 
 function createCard() {
-    let URL = "http://localhost:3000/quiz"
+    let URL = "/quiz"
     let getAllData = [];
     axios.get(URL).then((response) => {
         getAllData = response.data;
@@ -72,7 +72,7 @@ function createCard() {
 
 function displayQuestion() {
     displayQue.style.display = "block";
-    let URL = "http://localhost:3000/quiz/" + title_id;
+    let URL = "/quiz/" + title_id;
     console.log(URL);
     axios.get(URL).then((response) => {
         let datas = response.data.questions

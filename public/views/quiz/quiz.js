@@ -1,25 +1,24 @@
-
 const allButtonCliked = document.body
 let scoreUser = 0;
 let totalScore = 0;
 let clicked = 0;
-allButtonCliked.addEventListener("click", (e)=>{
+allButtonCliked.addEventListener("click", (e) => {
     let userAnswer = "";
-    if (e.target.id == "answer1" || e.target.id == "answer2" || e.target.id == "answer3" || e.target.id == "answer4"){
+    if (e.target.id == "answer1" || e.target.id == "answer2" || e.target.id == "answer3" || e.target.id == "answer4") {
         userAnswer = e.target.textContent;
-        clicked +=1;
+        clicked += 1;
     }
     var form_question = e.target.parentNode;
-    var target = e.target .parentNode.parentNode
-    var tagetID =e.target.parentNode.parentNode.id
+    var target = e.target.parentNode.parentNode
+    var tagetID = e.target.parentNode.parentNode.id
     document.getElementById(tagetID).style = "pointer-events:none;"
-    var targetAnswer = e.target 
-    target.onclick =false;
-    console.log("Hello"); 
-    let question = target.childNodes[0].textContent;       
-    let URL = "http://localhost:3000/quiz/"+localStorage.getItem("titleID");
+    var targetAnswer = e.target
+    target.onclick = false;
+    console.log("Hello");
+    let question = target.childNodes[0].textContent;
+    let URL = "/quiz/" + localStorage.getItem("titleID");
     let arrAnswer = [];
-    for(let i = 0; i < form_question.childNodes.length; i++){
+    for (let i = 0; i < form_question.childNodes.length; i++) {
         arrAnswer.push(form_question.childNodes[i]);
         console.log(form_question.childNodes[i].textContent);
     }
@@ -27,59 +26,56 @@ allButtonCliked.addEventListener("click", (e)=>{
         let allQues = response.data.questions;
         for (let value of allQues) {
             totalScore += value.score;
-            if (value.question == question){
-                if(userAnswer == value.correctAnswer){
-                    targetAnswer.style.backgroundColor ="blue"
+            if (value.question == question) {
+                if (userAnswer == value.correctAnswer) {
+                    targetAnswer.style.backgroundColor = "blue"
                     scoreUser += value.score;
+                } else if (userAnswer != value.correctAnswer) {
+                    targetAnswer.style.backgroundColor = "red"
+                    if (arrAnswer[0].textContent == value.correctAnswer) {
+                        arrAnswer[0].style.backgroundColor = "blue"
+                        arrAnswer[1].style.backgroundColor = "red"
+                        arrAnswer[2].style.backgroundColor = "red"
+                        arrAnswer[3].style.backgroundColor = "red"
+                    } else if (arrAnswer[1].textContent == value.correctAnswer) {
+                        arrAnswer[0].style.backgroundColor = "red"
+                        arrAnswer[1].style.backgroundColor = "blue"
+                        arrAnswer[2].style.backgroundColor = "red"
+                        arrAnswer[3].style.backgroundColor = "red"
+                    } else if (arrAnswer[2].textContent == value.correctAnswer) {
+                        arrAnswer[0].style.backgroundColor = "red"
+                        arrAnswer[1].style.backgroundColor = "red"
+                        arrAnswer[2].style.backgroundColor = "blue"
+                        arrAnswer[3].style.backgroundColor = "red"
+                    } else if (arrAnswer[3].textContent == value.correctAnswer) {
+                        arrAnswer[0].style.backgroundColor = "red"
+                        arrAnswer[1].style.backgroundColor = "red"
+                        arrAnswer[2].style.backgroundColor = "red"
+                        arrAnswer[3].style.backgroundColor = "blue"
+                    }
+
                 }
-                else if (userAnswer != value.correctAnswer){
-                        targetAnswer.style.backgroundColor ="red"
-                        if(arrAnswer[0].textContent == value.correctAnswer){
-                            arrAnswer[0].style.backgroundColor ="blue"
-                            arrAnswer[1].style.backgroundColor ="red"
-                            arrAnswer[2].style.backgroundColor ="red"
-                            arrAnswer[3].style.backgroundColor ="red"
-                        }
-                        else if(arrAnswer[1].textContent == value.correctAnswer){
-                            arrAnswer[0].style.backgroundColor ="red"
-                            arrAnswer[1].style.backgroundColor ="blue"
-                            arrAnswer[2].style.backgroundColor ="red"
-                            arrAnswer[3].style.backgroundColor ="red"
-                        }
-                       else  if(arrAnswer[2].textContent == value.correctAnswer){
-                        arrAnswer[0].style.backgroundColor ="red"
-                        arrAnswer[1].style.backgroundColor ="red"
-                        arrAnswer[2].style.backgroundColor ="blue"
-                        arrAnswer[3].style.backgroundColor ="red"
-                        }
-                       else  if(arrAnswer[3].textContent == value.correctAnswer){
-                        arrAnswer[0].style.backgroundColor ="red"
-                        arrAnswer[1].style.backgroundColor ="red"
-                        arrAnswer[2].style.backgroundColor ="red"
-                        arrAnswer[3].style.backgroundColor ="blue"
-                        }
-                    
-                }
-                
+
             }
         }
     })
     if (clicked == indexQuestions) {
-            localStorage.setItem("scoreUser", scoreUser);
-            localStorage.setItem("totalScore", totalScore);
-            alert("Your score is: "+localStorage.getItem("scoreUser"));
+        localStorage.setItem("scoreUser", scoreUser);
+        localStorage.setItem("totalScore", totalScore);
+        alert("Your score is: " + localStorage.getItem("scoreUser"));
     }
 })
 
 
 let indexQuestions = 0;
+
 function createFormQuiz() {
-    let URL = "http://localhost:3000/quiz/"+localStorage.getItem("titleID");
+    let URL = "/quiz/" + localStorage.getItem("titleID");
     axios.get(URL).then((response) => {
         let QueAns = response.data.questions;
 
         for (let vlaue of QueAns) {
-            indexQuestions ++
+            indexQuestions++
             let container = document.getElementById("container");
 
             let form_que = document.createElement("div");
@@ -111,7 +107,7 @@ function createFormQuiz() {
 
             let score = document.createElement("p");
             score.id = "score";
-            score.textContent = "Score "+vlaue.score;
+            score.textContent = "Score " + vlaue.score;
             let br = document.createElement("br")
 
             form_que.appendChild(h3);
@@ -124,7 +120,7 @@ function createFormQuiz() {
             container.appendChild(form_que);
             container.appendChild(br)
 
-            
+
         }
 
 

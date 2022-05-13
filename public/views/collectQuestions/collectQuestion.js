@@ -10,7 +10,7 @@ allButtonPlay.addEventListener("click", (e) => {
 
 // create card
 function createCard() {
-    let URL = "http://localhost:3000/quiz"
+    let URL = "/quiz"
     let getAllData = [];
     axios.get(URL).then((response) => {
         getAllData = response.data;

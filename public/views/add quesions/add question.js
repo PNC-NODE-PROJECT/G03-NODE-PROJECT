@@ -1,21 +1,21 @@
 const allDeleteBtn = document.body;
-allDeleteBtn.addEventListener("click",(e) => {
-    let getQuiz = "http://localhost:3000/quiz"
-    axios.get(getQuiz).then((response) =>{
-        let datas = response.data[response.data.length-1];
+allDeleteBtn.addEventListener("click", (e) => {
+    let getQuiz = "/quiz"
+    axios.get(getQuiz).then((response) => {
+        let datas = response.data[response.data.length - 1];
         for (let value in datas) {
-            if (value == "questions"){
-                for (let v of datas[value]){
+            if (value == "questions") {
+                for (let v of datas[value]) {
                     quesID = v._id;
                 }
             }
         }
-        if(e.target.className == "delete"){
+        if (e.target.className == "delete") {
             e.target.parentElement.parentElement.remove();
             DeleteQuestion();
-        }else if(e.target.className == "update"){
-                document.getElementById("edit-quiz").style.display="none";
-                document.getElementById("form_add").style.display="block";
+        } else if (e.target.className == "update") {
+            document.getElementById("edit-quiz").style.display = "none";
+            document.getElementById("form_add").style.display = "block";
         }
     })
 })
@@ -34,69 +34,65 @@ var choices = document.getElementById("choices");
 var titleID = "";
 let quesID = "";
 var contentQue = document.getElementById("question-content");
+
 function addQuestions() {
     let ifCompleted = false;
-    let URL = "http://localhost:3000/addQuestions/"+titleID;
+    let URL = "/addQuestions/" + titleID;
     if (document.querySelector('input[name="choice"]:checked')) {
         correcrtAns = document.querySelector('input[name="choice"]:checked').id;
     }
-    if(correcrtAns == "1"){
-        correcrtAns =ans1.value;
+    if (correcrtAns == "1") {
+        correcrtAns = ans1.value;
+    } else if (correcrtAns == "2") {
+        correcrtAns = ans2.value;
+    } else if (correcrtAns == "3") {
+        correcrtAns = ans3.value;
+    } else if (correcrtAns == "4") {
+        correcrtAns = ans4.value;
     }
-    else if(correcrtAns == "2"){
-        correcrtAns =ans2.value;
-    }
-    else if(correcrtAns == "3"){
-        correcrtAns =ans3.value;
-    }
-    else if(correcrtAns == "4"){
-        correcrtAns =ans4.value;
-    }
-    if(question.value.length>0 & ans1.value.length>0 & ans2.value.length>0 & ans3.value.length>0 & ans4.value.length>0 & correcrtAns.length>0 & scores.value>0){
+    if (question.value.length > 0 & ans1.value.length > 0 & ans2.value.length > 0 & ans3.value.length > 0 & ans4.value.length > 0 & correcrtAns.length > 0 & scores.value > 0) {
         ifCompleted = true;
     }
-    if(ifCompleted){
-            axios.post(URL,{question:question.value,answer:{answer1:ans1.value,answer2:ans2.value,answer3:ans3.value,answer4:ans4.value},correctAnswer:correcrtAns,score:scores.value}).then(() =>{
-                    displayQuestion();
-                    let clearAnswerForm=document.querySelectorAll(".clear")
-                    for(let clears of clearAnswerForm){
-                        clears.value=""
-                    }
-            })
-    }
-    else if(!ifCompleted){
+    if (ifCompleted) {
+        axios.post(URL, { question: question.value, answer: { answer1: ans1.value, answer2: ans2.value, answer3: ans3.value, answer4: ans4.value }, correctAnswer: correcrtAns, score: scores.value }).then(() => {
+            displayQuestion();
+            let clearAnswerForm = document.querySelectorAll(".clear")
+            for (let clears of clearAnswerForm) {
+                clears.value = ""
+            }
+        })
+    } else if (!ifCompleted) {
         alert("Please complete all field...!")
     }
 }
 
-function addTitle(){
-    if (document.getElementById("title").value.length>0){
-        title.style.display="none";
+function addTitle() {
+    if (document.getElementById("title").value.length > 0) {
+        title.style.display = "none";
         document.getElementById("addTitle").style.display = "none";
-        document.getElementById("quest").style.display="none";
+        document.getElementById("quest").style.display = "none";
         document.getElementById("formQue").style.display = "block";
-        let URL = "http://localhost:3000/title";
-        axios.post(URL, {title:title.value,userID:localStorage.getItem("userID")}).then((response) =>{
-                titleID = response.data._id;
-            })
-        }
-    else if (document.getElementById("title").value.length==0){
+        let URL = "/title";
+        axios.post(URL, { title: title.value, userID: localStorage.getItem("userID") }).then((response) => {
+            titleID = response.data._id;
+        })
+    } else if (document.getElementById("title").value.length == 0) {
         alert("Please complete your title quiz...!")
     }
 }
 
 
 // display question after added
-function displayQuestion(){
-    let URL ="http://localhost:3000/quiz/"+titleID;
+function displayQuestion() {
+    let URL = "/quiz/" + titleID;
     let questionData;
     axios.get(URL).then((response) => {
         questionData = response.data.questions;
-        for (let value of questionData){
+        for (let value of questionData) {
             console.log(value.correctAnswer);
             let ctrlBtn = document.createElement("div");
             ctrlBtn.id = "ctrlBtn"
-            
+
             let btnDelete = document.createElement("button");
             btnDelete.className = "delete";
             btnDelete.textContent = 'Delete'
@@ -122,53 +118,53 @@ function displayQuestion(){
             let score = document.createElement("span")
             let correctAn = document.createElement("p");
             let arraAnswers = [];
-            for (let eachAns in value.answer){
+            for (let eachAns in value.answer) {
                 arraAnswers.push(value.answer[eachAns]);
             }
-            an1.className="answ1"
+            an1.className = "answ1"
             an1.textContent = arraAnswers[0]
 
-            an2.className="answ2"
-            an2.textContent =arraAnswers[1]
+            an2.className = "answ2"
+            an2.textContent = arraAnswers[1]
 
-            an3.className="answ3";
+            an3.className = "answ3";
             an3.textContent = arraAnswers[2]
 
             an4.textContent = arraAnswers[3]
-            an4.className="answ4";
+            an4.className = "answ4";
 
-            correctAn.className="corectans"
-            correctAn.textContent =value.correctAnswer
+            correctAn.className = "corectans"
+            correctAn.textContent = value.correctAnswer
 
             score.className = "scoreQue"
-            score.textContent ="Score: "+ value.score
+            score.textContent = "Score: " + value.score
             console.log(score);
-                            
-            if(an1.textContent == correctAn.textContent){
+
+            if (an1.textContent == correctAn.textContent) {
                 an1.style.color = "blue";
                 an2.style.color = "red";
                 an3.style.color = "red";
                 an4.style.color = "red";
             }
-            if(an2.textContent == correctAn.textContent){
+            if (an2.textContent == correctAn.textContent) {
                 an2.style.color = "blue";
                 an1.style.color = "red";
                 an3.style.color = "red";
                 an4.style.color = "red";
             }
-            if(an3.textContent == correctAn.textContent){
+            if (an3.textContent == correctAn.textContent) {
                 an3.style.color = "blue";
                 an1.style.color = "red";
                 an2.style.color = "red";
                 an4.style.color = "red";
             }
-            if(an4.textContent == correctAn.textContent){
+            if (an4.textContent == correctAn.textContent) {
                 an4.style.color = "blue";
                 an1.style.color = "red";
                 an3.style.color = "red";
                 an2.style.color = "red";
             }
-            
+
             form_que.appendChild(ques);
             form_que.appendChild(score);
             form_que.appendChild(an1);
@@ -179,18 +175,18 @@ function displayQuestion(){
             contentQue.appendChild(form_que);
             document.getElementById("title").textContent = "";
         }
-    })     
+    })
 }
 
-function DeleteQuestion(){
-        let URL = "http://localhost:3000/deleteQuestion/"+titleID+"/"+quesID;
-        axios.post(URL).then(() => {
-            displayQuestion();
+function DeleteQuestion() {
+    let URL = "/deleteQuestion/" + titleID + "/" + quesID;
+    axios.post(URL).then(() => {
+        displayQuestion();
 
-        })
+    })
 }
 
-function updateQuestion(){
+function updateQuestion() {
     let que = document.getElementById("questionUpd");
     let ans1Upd = document.getElementById("a1Upd");
     let ans2Upd = document.getElementById("a2Upd");
@@ -198,74 +194,71 @@ function updateQuestion(){
     let ans4Upd = document.getElementById("a4Upd");
     let socreUpd = document.getElementById("scoreUpd").value;
     let correctAnUpd = '';
-    document.querySelectorAll("#choice").checked =false;
+    document.querySelectorAll("#choice").checked = false;
     if (document.querySelector('input[name="choiceUpd"]:checked')) {
         correctAnUpd = document.querySelector('input[name="choiceUpd"]:checked').id;
     }
-    if(correctAnUpd == "1"){
-        correctAnUpd =ans1Upd.value;
+    if (correctAnUpd == "1") {
+        correctAnUpd = ans1Upd.value;
+    } else if (correctAnUpd == "2") {
+        correctAnUpd = ans2Upd.value;
+    } else if (correctAnUpd == "3") {
+        correctAnUpd = ans3Upd.value;
+    } else if (correctAnUpd == "4") {
+        correctAnUpd = ans4Upd.value;
     }
-    else if(correctAnUpd == "2"){
-        correctAnUpd =ans2Upd.value;
-    }
-    else if(correctAnUpd == "3"){
-        correctAnUpd =ans3Upd.value;
-    }
-    else if(correctAnUpd == "4"){
-        correctAnUpd =ans4Upd.value;
-    }
-    if(ans1Upd.textContent == correctAnUpd){
+    if (ans1Upd.textContent == correctAnUpd) {
         ans1Upd.style.color = "blue";
         ans2Upd.style.color = "red";
         ans3Upd.style.color = "red";
         ans4Upd.style.color = "red";
     }
-    if(ans2Upd.textContent == correctAnUpd){
+    if (ans2Upd.textContent == correctAnUpd) {
         ans2Upd.style.color = "blue";
         ans1Upd.style.color = "red";
         ans3Upd.style.color = "red";
         ans4Upd.style.color = "red";
     }
-    if(ans3Upd.textContent == correctAnUpd){
+    if (ans3Upd.textContent == correctAnUpd) {
         ans3Upd.style.color = "blue";
         ans2Upd.style.color = "red";
         ans3Upd.style.color = "red";
         ans4Upd.style.color = "red";
     }
-    if(ans4Upd.textContent == correctAnUpd){
+    if (ans4Upd.textContent == correctAnUpd) {
         ans4Upd.style.color = "blue";
         ans1Upd.style.color = "red";
         ans3Upd.style.color = "red";
         ans4Upd.style.color = "red";
     }
-    let URL = "http://localhost:3000/updateQuestion/"+titleID+"/"+quesID+"/"+que.value+"/"+ans1Upd.value+"/"+ans2Upd.value+"/"+ans3Upd.value+"/"+ans4Upd.value+"/"+correctAnUpd+"/"+socreUpd;
+    let URL = "/updateQuestion/" + titleID + "/" + quesID + "/" + que.value + "/" + ans1Upd.value + "/" + ans2Upd.value + "/" + ans3Upd.value + "/" + ans4Upd.value + "/" + correctAnUpd + "/" + socreUpd;
     console.log(URL);
     axios.post(URL).then(() => {
-        document.getElementById("edit-quiz").style.display="block";
-        document.getElementById("form_add").style.display="none";
+        document.getElementById("edit-quiz").style.display = "block";
+        document.getElementById("form_add").style.display = "none";
         document.getElementById("formContainQUe").remove();
         displayQuestion();
     });
 }
 
-document.getElementById("btn-back").addEventListener("click",() =>{
+document.getElementById("btn-back").addEventListener("click", () => {
     location.href = "../startCreate/start.html";
 })
 
-document.getElementById("cancel").addEventListener("click",()=>{
+document.getElementById("cancel").addEventListener("click", () => {
 
-    document.getElementById("edit-quiz").style.display="block";
-    document.getElementById("form_add").style.display="none";
+    document.getElementById("edit-quiz").style.display = "block";
+    document.getElementById("form_add").style.display = "none";
 })
 
-document.getElementById("update").addEventListener("click",()=>{
+document.getElementById("update").addEventListener("click", () => {
     updateQuestion();
 })
 
-let URLPF= "http://localhost:3000/dataUsers/"+localStorage.getItem("userID");
-axios.get(URLPF).then((response) =>{
+let URLPF = "/dataUsers/" + localStorage.getItem("userID");
+axios.get(URLPF).then((response) => {
     document.getElementById("name_user").textContent = response.data.username;
 })
 
-document.getElementById("addTitle").addEventListener("click",addTitle)
-document.getElementById("btn-add-question").addEventListener("click",addQuestions)
+document.getElementById("addTitle").addEventListener("click", addTitle)
+document.getElementById("btn-add-question").addEventListener("click", addQuestions)
