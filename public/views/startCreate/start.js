@@ -17,3 +17,7 @@ let URL = "/dataUsers/" + localStorage.getItem("userID");
 axios.get(URL).then((response) => {
     document.getElementById("name_user").textContent = response.data.username;
 })
+
+document.getElementById("homepage").addEventListener("click", function() {
+    location.href = "../homepage/home.html";
+})

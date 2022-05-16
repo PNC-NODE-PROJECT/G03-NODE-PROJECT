@@ -1,27 +1,28 @@
-.bg-app{
-    margin-top: 4%;
+.bg-app {
     padding: 5rem;
     height: 95vh;
-    /* background: #eee; */
     background-image: url("../../image/RB_Dig_KIQuiz_stage_00_image_caption_none.webp");
     background-repeat: no-repeat;
     background-size: cover;
 }
-.app{
+
+.app {
     color: white;
     margin-left: 5%;
 }
-.logo{
+
+.logo {
     margin-left: 3rem;
 }
-.fa{
+
+.fa {
     font-size: 2.5rem;
     margin-top: 1rem;
-
 }
-.menu{
+
+.menu {
     display: flex;
-    justify-content: space-between;    
+    justify-content: space-between;
     position: fixed;
     width: 100%;
     top: 0%;
@@ -29,38 +30,44 @@
     border-bottom: 1px solid #B993D6;
     /* box-shadow:6px 6px 8px rgb(185, 185, 185);  */
 }
-.fa .fa-user-circle{
+
+.fa .fa-user-circle {
     margin-top: 2rem;
 }
-.button{
+
+.button {
     border: none;
     background: blue;
     color: white;
     font-weight: bold;
-    border-radius:5px;
+    border-radius: 5px;
     margin-right: 3rem;
     margin-left: 5rem;
     margin-top: 1rem;
     margin-bottom: 0.5rem;
 }
-.account{
+
+.account {
     display: flex;
 }
-#name_user{
+
+#name_user {
     margin-top: 0.8rem;
     font-weight: bold;
     margin-right: 0.2rem;
 }
 
-strong{
-    color: #fa9f27;    
+strong {
+    color: #fa9f27;
 }
-.btn a{
+
+.btn a {
     color: white;
     text-decoration: none;
     font-weight: bold;
 }
-.demo-content{
+
+.demo-content {
     padding: 25px;
     font-size: 18px;
 }

@@ -32,6 +32,7 @@ app.get('/dataUsers/:userID', (req, res) => {
     datausersModel.findOne({ _id: req.params.userID })
         .then((results) => {
             res.send(results);
+            git
         })
         .catch((error) => {
             res.send(error);

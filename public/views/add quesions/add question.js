@@ -84,12 +84,12 @@ function addTitle() {
 
 // display question after added
 function displayQuestion() {
+    console.log(titleID);
     let URL = "/quiz/" + titleID;
     let questionData;
     axios.get(URL).then((response) => {
         questionData = response.data.questions;
         for (let value of questionData) {
-            console.log(value.correctAnswer);
             let ctrlBtn = document.createElement("div");
             ctrlBtn.id = "ctrlBtn"
 
@@ -138,7 +138,6 @@ function displayQuestion() {
 
             score.className = "scoreQue"
             score.textContent = "Score: " + value.score
-            console.log(score);
 
             if (an1.textContent == correctAn.textContent) {
                 an1.style.color = "blue";
@@ -173,7 +172,7 @@ function displayQuestion() {
             form_que.appendChild(an4);
             form_que.appendChild(ctrlBtn);
             contentQue.appendChild(form_que);
-            document.getElementById("title").textContent = "";
+            // document.getElementById("title").textContent = "";
         }
     })
 }
@@ -232,7 +231,6 @@ function updateQuestion() {
         ans4Upd.style.color = "red";
     }
     let URL = "/updateQuestion/" + titleID + "/" + quesID + "/" + que.value + "/" + ans1Upd.value + "/" + ans2Upd.value + "/" + ans3Upd.value + "/" + ans4Upd.value + "/" + correctAnUpd + "/" + socreUpd;
-    console.log(URL);
     axios.post(URL).then(() => {
         document.getElementById("edit-quiz").style.display = "block";
         document.getElementById("form_add").style.display = "none";

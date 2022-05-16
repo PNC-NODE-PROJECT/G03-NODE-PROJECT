@@ -175,7 +175,6 @@ function searchTitle() {
 
 
 }
-document.getElementById("search").addEventListener("click", searchTitle);
 
 
 createCard();

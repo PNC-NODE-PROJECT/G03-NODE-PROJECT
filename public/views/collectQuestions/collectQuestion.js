@@ -88,10 +88,5 @@ function searchTitle() {
         } else {
             getParentEle.style.display = "none";
         }
-        console.log(typeof(valueText));
     }
-
-
 }
-
-searchBtn.addEventListener("click", searchTitle);

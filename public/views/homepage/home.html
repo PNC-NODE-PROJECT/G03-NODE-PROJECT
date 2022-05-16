@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,40 +11,43 @@
     <link rel="stylesheet" href="home.css">
     <title>Document</title>
 </head>
+
 <body>
     <section id="homepage">
         <div class="menu">
             <div class="logo">
-                <h1>Quiz APP</h1>
+                <h1 id="homepage" title="Home page">Quiz APP</h1>
             </div>
             <div class="account">
-                <div id="name_user"><p id="name_user" style="margin-right: 10px; margin-top: 5px;"></p></div>
+                <div id="name_user">
+                    <p id="name_user" style="margin-right: 10px; margin-top: 5px;"></p>
+                </div>
                 <div class="img">
-                    <div class="user"><img src="../../image/profile.png"  id="pfUser" style="width: 10%;" class="fa fa-user-circle" ></div>
-                    <button class="button" id="signUp">Sing up</button>
+                    <div class="user" style="cursor: pointer;" title="Your profile"><img src="../../image/profile.png" id="pfUser" style="width: 10%;" class="fa fa-user-circle"></div>
+                    <button class="button" id="signUp" title="Sign in new account ">Sing up</button>
                 </div>
             </div>
         </div>
         <div class="image-bg">
             <div class="container mt-2 pt-5">
                 <h2>Welcome To Quiz App</h2>
-                <p>Quiz app is the application <br> useful to study.
-                     Please, Imporve your ability<br> with my application <strong>QUIZ APP</strong> . 
+                <p>Quiz app is the application <br> useful to study. Please, Imporve your ability<br> with my application <strong>QUIZ APP</strong> .
                 </p>
-            <div class="mt-4 pt-5">
-                <button class="btn btn-primary btn-lg" type="submit" value="Submit"><a href="../startCreate/start.html">Start now</a></button>
-              </div>
+                <div class="mt-4 pt-5">
+                    <button class="btn btn-primary btn-lg" type="submit" value="Submit"><a href="../startCreate/start.html">Start now</a></button>
+                </div>
             </div>
         </div>
-        
+
     </section>
     <div class="card" id="card" style="display: none;">
         <img src="../../image/profile.png" alt="John" style="width:60%">
         <h1 id="name">John Doe</h1>
         <p id="email">CEO & Founder, Example</p>
         <p id="password">Harvard University</p>
-        <p ><button id="btnBack">Back</button></p>
-  </div>
+        <p><button id="btnBack">Back</button></p>
+    </div>
     <script src="home.js"></script>
 </body>
+
 </html>
